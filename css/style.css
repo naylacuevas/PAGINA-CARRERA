@@ -694,6 +694,40 @@ ul { list-style:none; padding:0; margin:0; }
 }
 .btn-ver-perfil:hover { background: var(--azul-claro); color: #fff; }
 
+
+
+
+/* Botones selector de Nivel (página Horarios) */
+.btn-nivel {
+  background: var(--azul-seccion);
+  border: 1px solid var(--borde);
+  color: var(--gris-claro);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-nivel:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.btn-nivel.active {
+  background: var(--cyan);
+  color: #000;
+  border-color: var(--cyan);
+}
+
+/* Separación entre cada bloque de carrusel por nivel, evita que se peguen entre sí */
+.carrusel-nivel {
+  margin-bottom: 24px;
+}
+
+
+
 /* GALERÍA MULTIMEDIA */
 #galeria {
   background: var(--azul-oscuro);
@@ -1942,4 +1976,45 @@ footer {
 @media (max-width: 576px) {
   .galeria-grid { grid-template-columns: 1fr 1fr; }
   .hero-redes { gap: 8px; }
+}
+
+/* ---- Carrusel de Noticias: flechas afuera de la imagen ---- */
+#carruselNoticias .carousel-control-prev,
+#carruselNoticias .carousel-control-next {
+  width: 50px;
+  background: rgba(0,194,255,0.15);
+  opacity: 1;
+}
+
+#carruselNoticias .carousel-control-prev {
+  left: -60px;
+}
+
+#carruselNoticias .carousel-control-next {
+  right: -60px;
+}
+
+#carruselNoticias .carousel-control-prev-icon,
+#carruselNoticias .carousel-control-next-icon {
+  background-color: var(--cyan);
+  border-radius: 50%;
+  padding: 18px;
+  width: 36px;
+  height: 36px;
+}
+
+/* responsive: en móvil acercamos las flechas para que no se salgan de pantalla */
+@media (max-width: 576px) {
+  #carruselNoticias .carousel-control-prev {
+    left: -35px;
+  }
+  #carruselNoticias .carousel-control-next {
+    right: -35px;
+  }
+  #carruselNoticias .carousel-control-prev-icon,
+  #carruselNoticias .carousel-control-next-icon {
+    width: 28px;
+    height: 28px;
+    padding: 14px;
+  }
 }

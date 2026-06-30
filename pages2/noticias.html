@@ -51,22 +51,57 @@
 <div class="pagina-cuerpo">
   <div class="container">
 
-    <div style="background:var(--azul-seccion); border:1px solid rgba(0,194,255,0.3); border-radius:14px; padding:48px; text-align:center;">
-      <i class="fas fa-newspaper" style="font-size:3rem; color:var(--cyan); display:block; margin-bottom:16px;"></i>
-      <h3 style="color:var(--blanco); font-family:'Rajdhani',sans-serif; font-size:1.8rem; margin-bottom:10px;">Noticias próximamente</h3>
-      <p style="color:var(--gris-claro); max-width:520px; margin:0 auto 24px; line-height:1.7; font-size:0.92rem;">
-        Aquí publicaremos los últimos eventos, talleres, convocatorias y anuncios 
-        importantes de la carrera de Ingeniería en Diseño y Programación Digital. ¡Vuelve pronto!
-      </p>
-      <div class="d-flex gap-3 justify-content-center flex-wrap">
-        <a href="https://chat.whatsapp.com/KQLQVHoHaIuFkizzZuGSdP?mode=ems_qr_t " target="_blank" class="btn-conocenos">
-          <i class="fab fa-whatsapp me-1"></i> SEGUIR EN WHATSAPP
-        </a>
-        <a href="https://w.app/directorcarrera" class="btn-inscripciones">
-          CONTACTAR <i class="fas fa-arrow-right ms-1"></i>
-        </a>
+    <!-- Carrusel de Noticias -->
+<div style="background:var(--azul-seccion); border:1px solid rgba(0,194,255,0.3); border-radius:14px; padding:40px; text-align:center;">
+  
+  <h3 style="color:var(--blanco); font-family:'Rajdhani',sans-serif; font-size:1.8rem; margin-bottom:24px;">
+    <i class="fas fa-newspaper me-2" style="color:var(--cyan);"></i>Últimas Noticias
+  </h3>
+<div style="max-width:380px; margin:0 auto 28px; position:relative; padding:0 50px;">
+    <div id="carruselNoticias" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#carruselNoticias" data-bs-slide-to="3"></button>
       </div>
+
+      <div class="carousel-inner" style="border-radius:10px; overflow:hidden;">
+        <div class="carousel-item active">
+          <img src="../img/noticia 1.jpg" class="d-block w-100" alt="PSA Prueba de Suficiencia Académica">
+        </div>
+        <div class="carousel-item">
+          <img src="../img/noticia 2.jpg" class="d-block w-100" alt="Aviso Examen de Ingreso">
+        </div>
+        <div class="carousel-item">
+          <img src="../img/noticia 3.jpg" class="d-block w-100" alt="Comunicado Admitidos PSA">
+        </div>
+        <div class="carousel-item">
+          <img src="../img/noticia 4.jpg" class="d-block w-100" alt="Comunicado Preuniversitario">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carruselNoticias" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carruselNoticias" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
     </div>
+  </div>
+
+  <div class="d-flex gap-3 justify-content-center flex-wrap">
+    <a href="https://chat.whatsapp.com/KQLQVHoHaIuFkizzZuGSdP?mode=ems_qr_t " target="_blank" class="btn-conocenos">
+      <i class="fab fa-whatsapp me-1"></i> SEGUIR EN WHATSAPP
+    </a>
+    <a href="https://w.app/directorcarrera" class="btn-inscripciones">
+      CONTACTAR <i class="fas fa-arrow-right ms-1"></i>
+    </a>
+  </div>
+
+</div>
 
   </div>
 </div>

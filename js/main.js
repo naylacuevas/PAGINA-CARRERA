@@ -342,3 +342,14 @@ window.addEventListener('DOMContentLoaded', function () {
       reset: false
     });
 
+document.querySelectorAll('.btn-nivel').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var nivel = btn.getAttribute('data-nivel');
+
+    document.querySelectorAll('.btn-nivel').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.carrusel-nivel').forEach(c => c.style.display = 'none');
+    document.getElementById('nivel-' + nivel).style.display = 'block';
+  });
+});
