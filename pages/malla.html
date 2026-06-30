@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Curricular | DPD - UATF</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    /* Botón principal de cada materia (cabecera del acordeón) */
+    .materia-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.25s, border-color 0.25s;
+      color: var(--gris-claro);
+    }
+
+    /* Hover del botón materia */
+    .materia-btn:hover {
+      background: rgba(21,101,192,0.18);
+      border-color: var(--azul-claro);
+    }
+
+    /* Cuando el acordeón está abierto */
+    .materia-btn.abierto {
+      background: rgba(21,101,192,0.25);
+      border-color: var(--cyan);
+      color: var(--blanco);
+    }
+
+    /* Rotación del ícono chevron al abrir */
+    .materia-btn.abierto .materia-chevron {
+      transform: rotate(180deg);
+      color: var(--cyan);
+    }
+
+    /* Ícono chevron (flecha) */
+    .materia-chevron {
+      font-size: 0.75rem;
+      color: var(--gris-texto);
+      transition: transform 0.3s ease, color 0.3s;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+
+    /* Sigla de la materia (ej: DPD-130) */
+    .materia-sigla {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0,194,255,0.1);
+      border: 1px solid rgba(0,194,255,0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-left: auto;
+      flex-shrink: 0;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    /* Nombre de la materia */
+    .materia-nombre {
+      font-size: 0.83rem;
+      font-weight: 500;
+      flex-grow: 1;
+    }
+
+    /* Panel de descripción (acordeón) — oculto por defecto */
+    .materia-info {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+      background: rgba(0,0,0,0.2);
+      border-radius: 0 0 6px 6px;
+      margin-top: -6px;
+      margin-bottom: 6px;
+    }
+
+    /* Panel de descripción cuando está abierto */
+    .materia-info.abierto {
+      max-height: 200px;
+      padding: 12px 16px;
+    }
+
+    /* Ícono dentro de la descripción */
+    .materia-info i {
+      color: var(--cyan);
+      margin-right: 8px;
+      font-size: 0.8rem;
+    }
+
+    /* Texto de la descripción */
+    .materia-info p {
+      display: inline;
+      color: var(--gris-texto);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Lista de materias sin viñetas */
+    .materias-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR — igual que el original, sin cambios
+     ============================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-3 px-lg-4">
+    <a href="../index.html" class="navbar-brand p-0 me-0">
+      <div class="logo-dpd-wrap">
+        <div class="logo-dpd-ico">
+          <!-- Logo DPD: imagen real de la carrera -->
+          <img src="../img/logocarrera.png" alt="Logo DPD"
+               style="width:44px; height:44px; border-radius:50%; object-fit:contain;" />
+        </div>
+        <div class="logo-dpd-txt">INGENIERÍA EN<br>DISEÑO Y<br>PROGRAMACIÓN<br>DIGITAL</div>
+      </div>
+    </a>
+    <a href="../index.html" class="navbar-brand p-0 me-3">
+      <div class="logo-uatf-wrap">
+        <!-- Logo UATF: imagen real -->
+        <img src="../img/UATF.png" alt="Logo UATF"
+             style="width:44px; height:44px; border-radius:50%; object-fit:contain;" />
+        <div class="logo-uatf-txt">UNIVERSIDAD<br>AUTÓNOMA<br>TOMÁS FRÍAS</div>
+      </div>
+    </a>
+    <button class="navbar-toggler ms-auto" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMalla">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMalla">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link activo" href="malla.html">Malla Curricular</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO INTERIOR
+     ============================================================ -->
+<div class="pagina-hero-int">
+  <div class="container text-center">
+    <h1><i class="fas fa-graduation-cap me-2" style="color:var(--cyan);"></i>Malla Curricular</h1>
+    <p>Plan de estudios completo — 8 semestres de formación profesional</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+     ============================================================ -->
+<div class="pagina-cuerpo">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- ---- Columna de semestres (9/12) ---- -->
+      <div class="col-lg-9">
+
+        <!-- Tabs por año -->
+        <div class="year-tabs">
+          <button class="year-tab-btn activo" data-year="1">1er AÑO</button>
+          <button class="year-tab-btn" data-year="2">2do AÑO</button>
+          <button class="year-tab-btn" data-year="3">3er AÑO</button>
+          <button class="year-tab-btn" data-year="4">4to AÑO</button>
+        </div>
+
+        <!-- ==========================================
+             1er AÑO
+             ========================================== -->
+        <div class="year-pane activo" id="year-1">
+
+          <!-- SEMESTRE I -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE I</h6>
+            <ul class="materias-lista">
+
+              <!-- Materia: Programación I -->
+              <li>
+                <button class="materia-btn" data-target="info-dpd130">
+                  <span class="materia-nombre">Programación I</span>
+                  <span class="materia-sigla">DPD-130</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd130">
+                  <i class="fas fa-microchip"></i>
+                  <p>Introducción a la lógica de programación y algoritmos básicos mediante pseudocódigo y lenguajes de programación estructurada.</p>
+                </div>
+              </li>
+
+              <!-- Materia: Métodos y Técnicas de Investigación -->
+              <li>
+                <button class="materia-btn" data-target="info-dpd141">
+                  <span class="materia-nombre">Métodos y Técnicas de Investigación</span>
+                  <span class="materia-sigla">DPD-141</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd141">
+                  <i class="fas fa-flask"></i>
+                  <p>Fundamentos del proceso científico de investigación: planteamiento de problemas, hipótesis, metodologías cuantitativas y cualitativas.</p>
+                </div>
+              </li>
+
+              <!-- Materia: Fundamentos de Dibujo -->
+              <li>
+                <button class="materia-btn" data-target="info-dpd111">
+                  <span class="materia-nombre">Fundamentos de Dibujo</span>
+                  <span class="materia-sigla">DPD-111</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd111">
+                  <i class="fas fa-pencil-alt"></i>
+                  <p>Principios básicos del dibujo técnico y artístico: proporciones, perspectiva, luz y sombra aplicados al diseño digital.</p>
+                </div>
+              </li>
+
+              <!-- Materia: Física I -->
+              <li>
+                <button class="materia-btn" data-target="info-fis100">
+                  <span class="materia-nombre">Física I</span>
+                  <span class="materia-sigla">FIS-100</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-fis100">
+                  <i class="fas fa-atom"></i>
+                  <p>Mecánica clásica: cinemática, dinámica, trabajo y energía. Base científica para comprender fenómenos físicos aplicados a la tecnología.</p>
+                </div>
+              </li>
+
+              <!-- Materia: Álgebra I -->
+              <li>
+                <button class="materia-btn" data-target="info-mat100">
+                  <span class="materia-nombre">Álgebra I</span>
+                  <span class="materia-sigla">MAT-100</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-mat100">
+                  <i class="fas fa-square-root-alt"></i>
+                  <p>Estructuras algebraicas, sistemas de ecuaciones, matrices y determinantes. Fundamento matemático para la programación y el diseño computacional.</p>
+                </div>
+              </li>
+
+              <!-- Materia: Cálculo I -->
+              <li>
+                <button class="materia-btn" data-target="info-mat101">
+                  <span class="materia-nombre">Cálculo I</span>
+                  <span class="materia-sigla">MAT-101</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-mat101">
+                  <i class="fas fa-chart-line"></i>
+                  <p>Límites, derivadas e integrales de funciones reales. Herramienta matemática esencial para modelado y análisis en ciencias de la computación.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE I -->
+
+          <!-- SEMESTRE II -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE II</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd231">
+                  <span class="materia-nombre">Programación II</span>
+                  <span class="materia-sigla">DPD-231</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd231">
+                  <i class="fas fa-code"></i>
+                  <p>Programación orientada a objetos: clases, herencia, polimorfismo y encapsulamiento aplicados al desarrollo de software.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd242">
+                  <span class="materia-nombre">Teoría del Color</span>
+                  <span class="materia-sigla">DPD-242</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd242">
+                  <i class="fas fa-palette"></i>
+                  <p>Psicología del color, círculo cromático, armonías y contrastes. Aplicación del color en interfaces digitales y diseño gráfico.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-fis102">
+                  <span class="materia-nombre">Física Aplicada</span>
+                  <span class="materia-sigla">FIS-102</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-fis102">
+                  <i class="fas fa-bolt"></i>
+                  <p>Electricidad, magnetismo y óptica. Conceptos físicos aplicados al funcionamiento de dispositivos electrónicos y pantallas digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-mat102">
+                  <span class="materia-nombre">Cálculo II</span>
+                  <span class="materia-sigla">MAT-102</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-mat102">
+                  <i class="fas fa-infinity"></i>
+                  <p>Cálculo multivariable, series e integrales múltiples. Ampliación del cálculo diferencial e integral para aplicaciones avanzadas.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-mat103">
+                  <span class="materia-nombre">Álgebra II</span>
+                  <span class="materia-sigla">MAT-103</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-mat103">
+                  <i class="fas fa-th"></i>
+                  <p>Álgebra lineal avanzada: transformaciones lineales, espacios vectoriales y valores propios. Clave para gráficos por computadora y animación 3D.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd243">
+                  <span class="materia-nombre">Tratamiento de Imágenes Digitales</span>
+                  <span class="materia-sigla">DPD-243</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd243">
+                  <i class="fas fa-image"></i>
+                  <p>Edición y retoque digital, corrección de color, composición y exportación de imágenes para medios impresos y digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd241">
+                  <span class="materia-nombre">Historia del Arte</span>
+                  <span class="materia-sigla">DPD-241</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd241">
+                  <i class="fas fa-landmark"></i>
+                  <p>Evolución de las artes visuales desde la antigüedad hasta el arte digital contemporáneo. Contexto cultural y movimientos artísticos influyentes.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE II -->
+
+        </div><!-- fin year-1 -->
+
+
+        <!-- ==========================================
+             2do AÑO
+             ========================================== -->
+        <div class="year-pane" id="year-2">
+
+          <!-- SEMESTRE III -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE III</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd331">
+                  <span class="materia-nombre">Programación III</span>
+                  <span class="materia-sigla">DPD-331</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd331">
+                  <i class="fas fa-code-branch"></i>
+                  <p>Estructuras de datos avanzadas, algoritmos de ordenamiento y búsqueda. Optimización de programas y resolución de problemas complejos.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd330">
+                  <span class="materia-nombre">Diseño Web I</span>
+                  <span class="materia-sigla">DPD-330</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd330">
+                  <i class="fas fa-globe"></i>
+                  <p>Fundamentos de HTML5 y CSS3: estructura semántica, maquetación con Flexbox y Grid, diseño responsivo para múltiples dispositivos.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd310">
+                  <span class="materia-nombre">Diseño Vectorial</span>
+                  <span class="materia-sigla">DPD-310</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd310">
+                  <i class="fas fa-draw-polygon"></i>
+                  <p>Creación de gráficos vectoriales escalables: logotipos, íconos e ilustraciones digitales con software especializado de diseño vectorial.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd341">
+                  <span class="materia-nombre">Tipografía</span>
+                  <span class="materia-sigla">DPD-341</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd341">
+                  <i class="fas fa-font"></i>
+                  <p>Clasificación tipográfica, anatomía del tipo, jerarquía visual y legibilidad. Aplicación de fuentes en diseño editorial y digital.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd311">
+                  <span class="materia-nombre">Ilustración de Imágenes Digitales</span>
+                  <span class="materia-sigla">DPD-311</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd311">
+                  <i class="fas fa-paint-brush"></i>
+                  <p>Técnicas de ilustración digital: pintura vectorial, texturas, efectos y estilos artísticos aplicados a proyectos de diseño y comunicación visual.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd340">
+                  <span class="materia-nombre">Probabilidad y Estadística</span>
+                  <span class="materia-sigla">DPD-340</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd340">
+                  <i class="fas fa-chart-bar"></i>
+                  <p>Análisis estadístico descriptivo e inferencial, probabilidades y distribuciones. Aplicado a análisis de datos en proyectos digitales.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE III -->
+
+          <!-- SEMESTRE IV -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE IV</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd440">
+                  <span class="materia-nombre">Administración Empresarial</span>
+                  <span class="materia-sigla">DPD-440</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd440">
+                  <i class="fas fa-briefcase"></i>
+                  <p>Fundamentos de gestión empresarial: planificación, organización y liderazgo. Orientado a la administración de proyectos y estudios creativos digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd410">
+                  <span class="materia-nombre">Diseño Publicitario</span>
+                  <span class="materia-sigla">DPD-410</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd410">
+                  <i class="fas fa-bullhorn"></i>
+                  <p>Creación de piezas publicitarias: afiches, banners, flyers y campañas visuales. Conceptualización creativa y persuasión visual en medios digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd411">
+                  <span class="materia-nombre">Taller de Fotografía Digital</span>
+                  <span class="materia-sigla">DPD-411</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd411">
+                  <i class="fas fa-camera"></i>
+                  <p>Técnicas fotográficas: composición, iluminación, encuadre y edición. Fotografía aplicada a proyectos de diseño, publicidad y medios digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd420">
+                  <span class="materia-nombre">Modelado 2D y 3D</span>
+                  <span class="materia-sigla">DPD-420</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd420">
+                  <i class="fas fa-cube"></i>
+                  <p>Creación de modelos tridimensionales: modelado, texturizado, iluminación y renderizado para animación, videojuegos y producción audiovisual.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd421">
+                  <span class="materia-nombre">Programación Gráfica</span>
+                  <span class="materia-sigla">DPD-421</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd421">
+                  <i class="fas fa-laptop-code"></i>
+                  <p>Programación orientada a gráficos por computadora: manejo de canvas, SVG y librerías gráficas para creación de visualizaciones interactivas.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd430">
+                  <span class="materia-nombre">Base de Datos</span>
+                  <span class="materia-sigla">DPD-430</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd430">
+                  <i class="fas fa-database"></i>
+                  <p>Diseño e implementación de bases de datos relacionales: modelo entidad-relación, SQL, consultas y administración de datos en aplicaciones web.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd431">
+                  <span class="materia-nombre">Diseño Web II</span>
+                  <span class="materia-sigla">DPD-431</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd431">
+                  <i class="fas fa-mobile-alt"></i>
+                  <p>JavaScript, Bootstrap y frameworks CSS. Interactividad, animaciones y diseño responsivo avanzado para sitios web profesionales.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE IV -->
+
+        </div><!-- fin year-2 -->
+
+
+        <!-- ==========================================
+             3er AÑO
+             ========================================== -->
+        <div class="year-pane" id="year-3">
+
+          <!-- SEMESTRE V -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE V</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd540">
+                  <span class="materia-nombre">Metodología de la Investigación</span>
+                  <span class="materia-sigla">DPD-540</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd540">
+                  <i class="fas fa-search"></i>
+                  <p>Diseño de proyectos de investigación científica: formulación de problemas, marco teórico, metodología y presentación de resultados académicos.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd530">
+                  <span class="materia-nombre">Taller de Diseño Web</span>
+                  <span class="materia-sigla">DPD-530</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd530">
+                  <i class="fas fa-tools"></i>
+                  <p>Proyecto integrador de diseño web: desde el wireframe hasta la publicación. UX/UI, accesibilidad y optimización para buscadores.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd511">
+                  <span class="materia-nombre">Publicidad y Marketing</span>
+                  <span class="materia-sigla">DPD-511</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd511">
+                  <i class="fas fa-ad"></i>
+                  <p>Estrategias de marketing digital, branding, posicionamiento y gestión de campañas en redes sociales y plataformas publicitarias.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd520">
+                  <span class="materia-nombre">Animación Digital I</span>
+                  <span class="materia-sigla">DPD-520</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd520">
+                  <i class="fas fa-film"></i>
+                  <p>Principios de animación: fotograma clave, interpolación, timing y movimiento. Creación de animaciones 2D para web, publicidad y redes sociales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd542">
+                  <span class="materia-nombre">Teoría de la Comunicación</span>
+                  <span class="materia-sigla">DPD-542</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd542">
+                  <i class="fas fa-comments"></i>
+                  <p>Modelos y teorías de la comunicación visual y masiva. Análisis del mensaje, emisor, receptor y medios en el contexto digital contemporáneo.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd510">
+                  <span class="materia-nombre">Diagramación Digital</span>
+                  <span class="materia-sigla">DPD-510</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd510">
+                  <i class="fas fa-newspaper"></i>
+                  <p>Maquetación editorial digital: revistas, catálogos y documentos profesionales. Retículas, estilos y preparación para impresión y publicación digital.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE V -->
+
+          <!-- SEMESTRE VI -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE VI</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd622">
+                  <span class="materia-nombre">Inteligencia Artificial</span>
+                  <span class="materia-sigla">DPD-622</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd622">
+                  <i class="fas fa-robot"></i>
+                  <p>Fundamentos de IA y machine learning. Aplicaciones de inteligencia artificial en diseño generativo, automatización y herramientas creativas digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd624">
+                  <span class="materia-nombre">Taller de Multimedia I</span>
+                  <span class="materia-sigla">DPD-624</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd624">
+                  <i class="fas fa-photo-video"></i>
+                  <p>Producción multimedia integrada: combinación de imagen, audio, video y animación en proyectos interactivos y presentaciones digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd640">
+                  <span class="materia-nombre">Preparación y Evaluación de Proyectos</span>
+                  <span class="materia-sigla">DPD-640</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd640">
+                  <i class="fas fa-project-diagram"></i>
+                  <p>Formulación, evaluación financiera y gestión de proyectos digitales y creativos. Análisis de factibilidad, cronogramas y presupuestos.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd612">
+                  <span class="materia-nombre">Diseño de Videojuegos I</span>
+                  <span class="materia-sigla">DPD-612</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd612">
+                  <i class="fas fa-gamepad"></i>
+                  <p>Game design: mecánicas, narrativa, nivel y arte conceptual. Introducción a motores de videojuegos y desarrollo de prototipos jugables.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd621">
+                  <span class="materia-nombre">Narrativa Audiovisual, Guionismo y Storyboard</span>
+                  <span class="materia-sigla">DPD-621</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd621">
+                  <i class="fas fa-scroll"></i>
+                  <p>Escritura de guiones, construcción narrativa y visualización de secuencias mediante storyboard para cine, publicidad y producción audiovisual.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd623">
+                  <span class="materia-nombre">Animación Digital II</span>
+                  <span class="materia-sigla">DPD-623</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd623">
+                  <i class="fas fa-video"></i>
+                  <p>Animación 3D avanzada: rigging, skinning, simulación de físicas y render fotorrealista para producción cinematográfica y publicitaria.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE VI -->
+
+        </div><!-- fin year-3 -->
+
+
+        <!-- ==========================================
+             4to AÑO
+             ========================================== -->
+        <div class="year-pane" id="year-4">
+
+          <!-- SEMESTRE VII -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE VII</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd720">
+                  <span class="materia-nombre">Diseño de Videojuegos II</span>
+                  <span class="materia-sigla">DPD-720</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd720">
+                  <i class="fas fa-gamepad"></i>
+                  <p>Desarrollo avanzado de videojuegos: programación de mecánicas complejas, inteligencia artificial para NPCs y optimización de rendimiento.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd742">
+                  <span class="materia-nombre">Taller de Graduación I</span>
+                  <span class="materia-sigla">DPD-742</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd742">
+                  <i class="fas fa-graduation-cap"></i>
+                  <p>Inicio del proyecto de grado: definición del tema, marco teórico y metodología. Trabajo guiado bajo tutoría docente especializada.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd740">
+                  <span class="materia-nombre">Deontología y Ética Profesional</span>
+                  <span class="materia-sigla">DPD-740</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd740">
+                  <i class="fas fa-balance-scale"></i>
+                  <p>Principios éticos del ejercicio profesional en diseño y programación: propiedad intelectual, responsabilidad social y derechos digitales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd721">
+                  <span class="materia-nombre">Taller de Multimedia II</span>
+                  <span class="materia-sigla">DPD-721</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd721">
+                  <i class="fas fa-film"></i>
+                  <p>Producción audiovisual avanzada: edición de video, efectos visuales y postproducción para cine, publicidad y contenidos digitales profesionales.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd730">
+                  <span class="materia-nombre">Edición de Audio</span>
+                  <span class="materia-sigla">DPD-730</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd730">
+                  <i class="fas fa-headphones"></i>
+                  <p>Grabación, edición y mezcla de audio digital: sonido para video, diseño sonoro para videojuegos y podcasts. Software de producción musical.</p>
+                </div>
+              </li>
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd741">
+                  <span class="materia-nombre">Gestión de Calidad</span>
+                  <span class="materia-sigla">DPD-741</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd741">
+                  <i class="fas fa-check-circle"></i>
+                  <p>Estándares y metodologías de calidad en proyectos digitales: ISO, control de calidad en software y procesos de mejora continua.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE VII -->
+
+          <!-- SEMESTRE VIII -->
+          <div class="semestre-card" style="background:var(--azul-seccion); border-color:var(--borde);">
+            <h6 style="color:var(--cyan); border-color:var(--borde);">SEMESTRE VIII</h6>
+            <ul class="materias-lista">
+
+              <li>
+                <button class="materia-btn" data-target="info-dpd840">
+                  <span class="materia-nombre">Taller de Graduación II</span>
+                  <span class="materia-sigla">DPD-840</span>
+                  <i class="fas fa-chevron-down materia-chevron"></i>
+                </button>
+                <div class="materia-info" id="info-dpd840">
+                  <i class="fas fa-trophy"></i>
+                  <p>Culminación y defensa del proyecto de grado. Presentación ante tribunal evaluador, documento final y socialización de resultados académicos.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- fin SEMESTRE VIII -->
+
+        </div><!-- fin year-4 -->
+
+      </div><!-- fin col-lg-9 -->
+
+
+      <!-- ---- Perfil Profesional (3/12) — sin cambios ---- -->
+      <div class="col-lg-3">
+        <div class="perfil-card" style="background:var(--azul-seccion); border-color:var(--azul-vivo);">
+          <div class="ico-perfil" style="border-color:var(--azul-vivo); color:var(--azul-claro);">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h5>PERFIL PROFESIONAL</h5>
+          <p>
+            Egresados capaces de diseñar soluciones digitales completas: desde
+            el concepto visual hasta la implementación técnica, combinando
+            creatividad y programación.
+          </p>
+          <a href="nosotros.html" class="btn-ver-perfil">VER PERFIL PROFESIONAL</a>
+        </div>
+      </div>
+
+    </div><!-- fin row -->
+  </div><!-- fin container -->
+</div><!-- fin pagina-cuerpo -->
+
+
+<!-- ============================================================
+     FOOTER — igual que el original, sin cambios
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:none;">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p>&copy; 2026 UATF – Todos los derechos reservados.</p>
+        <a href="../index.html" style="color:var(--cyan);">← Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+<script src="../js/main.js"></script>
+
+<script>
+  // =============================================
+  //  ACORDEÓN DE MATERIAS
+  //  Abre/cierra la descripción al hacer clic
+  // =============================================
+  document.querySelectorAll('.materia-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+
+      // Obtener el id del panel de info correspondiente
+      var targetId = this.getAttribute('data-target');
+      var panel    = document.getElementById(targetId);
+
+      // Verificar si ya está abierto
+      var estaAbierto = this.classList.contains('abierto');
+
+      // Cerrar TODOS los acordeones abiertos en el mismo semestre-card
+      var card = this.closest('.semestre-card');
+      card.querySelectorAll('.materia-btn.abierto').forEach(function (otroBtn) {
+        otroBtn.classList.remove('abierto');
+      });
+      card.querySelectorAll('.materia-info.abierto').forEach(function (otroPanel) {
+        otroPanel.classList.remove('abierto');
+      });
+
+      // Si no estaba abierto, abrir este
+      if (!estaAbierto && panel) {
+        this.classList.add('abierto');
+        panel.classList.add('abierto');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

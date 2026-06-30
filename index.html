@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DPD | Ingeniería en Diseño y Programación Digital | UATF</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="img/logocarrera.png">
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body>
+
+   <!-- PANTALLA DE CARGA -->
+  <div id="loading-screen">
+    <img src="img/logocarrera.png" alt="Logo">
+    <div class="barra-contenedor">
+      <div class="barra-progreso"></div>
+    </div>
+  </div>
+
+  
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-3 px-lg-4">
+
+    <!-- Logo DPD -->
+    <a href="index.html" class="navbar-brand p-0 me-0">
+      <div class="logo-dpd-wrap">
+        <div class="logo-dpd-ico">
+          <img src="img/logocarrera.png" class="logo-img-nav" />
+        </div>
+        <div class="logo-dpd-txt">
+          INGENIERÍA EN<br>DISEÑO Y<br>PROGRAMACIÓN<br>DIGITAL
+        </div>
+      </div>
+    </a>
+
+    <!-- Logo UATF -->
+    <a href="index.html" class="navbar-brand p-0 me-3">
+      <div class="logo-uatf-wrap">
+        <div class="logo-uatf-ico">
+           <img src="img/UATF.png" alt="Logo UATF" style="width:44px; height:44px; border-radius:50%; object-fit:contain;" />
+        </div>
+        <div class="logo-uatf-txt">
+          UNIVERSIDAD<br>AUTÓNOMA<br>TOMÁS FRÍAS
+        </div>
+      </div>
+    </a>
+    
+
+    <!-- Toggler -->
+    <button class="navbar-toggler ms-auto" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navDPD">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navDPD">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link activo" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="pages/nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="pages/malla.html">Malla Curricular</a></li>
+        <li class="nav-item"><a class="nav-link" href="pages/galeria.html">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="pages/contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- HERO / INICIO -->
+
+<section id="inicio">
+
+  <!-- VIDEO DE FONDO (inspirado)-->
+  <video class="hero-video-bg" autoplay muted loop playsinline>
+    <source src="videos/carrera2.mp4" type="video/mp4" />
+  </video>
+
+  <div class="hero-video-overlay"></div>
+
+  <div class="container py-5" style="padding-top:110px!important; position:relative; z-index:2;">
+    <div class="row align-items-center">
+
+      <!-- Texto -->
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <span class="hero-eyebrow">Ingeniería en</span>
+        <h1 class="hero-title">
+          DISEÑO Y<br>
+          <span class="line-cyan">PROGRAMACIÓN<br>DIGITAL</span>
+        </h1>
+        <p class="hero-desc">
+          Formamos profesionales creativos e innovadores
+          capaces de diseñar experiencias y desarrollar soluciones
+          digitales que transforman el mundo.
+        </p>
+        <div class="hero-btns d-flex flex-wrap gap-2">
+          <a href="pages/nosotros.html" class="btn-conocenos">
+            CONÓCENOS MÁS <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+          <a href="https://www.uatf.edu.bo/" class="btn-inscripciones">
+            INSCRIPCIONES <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div><!-- fin col-lg-5 texto -->
+
+      <!-- Laptop imagen -->
+      <div class="col-lg-7 hero-img position-relative">
+        <img src="img/footer.png" class="hero-laptop" alt="">
+
+        <!-- Badges flotantes </> -->
+        <div style="position:absolute; top:10%; left:0; opacity:0.5;">
+          <div class="hero-icon-badge">&lt;/&gt;</div>
+        </div>
+        <div style="position:absolute; bottom:15%; right:2%; opacity:0.5;">
+          <div class="hero-icon-badge">&lt;/&gt;</div>
+        </div>
+      </div><!-- fin col-lg-7 imagen -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ACCESOS RÁPIDOS -->
+<section id="accesos">
+  <div class="container py-4">
+    <div class="row g-3 justify-content-center">
+
+      <div class="col-6 col-sm-4 col-md-2">
+        <a href="pages2/admision.html" style="display:block; height:100%;">
+          <div class="acceso-card">
+            <div class="ico-wrap"><i class="fas fa-graduation-cap"></i></div>
+            <div class="btn-acceso">Admisión</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-2">
+        <a href="pages/malla.html" style="display:block; height:100%;">
+          <div class="acceso-card">
+            <div class="ico-wrap"><i class="fas fa-book-open"></i></div>
+            <div class="btn-acceso">Plan de Estudios</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-2">
+        <a href="pages2/horarios.html" style="display:block; height:100%;">
+          <div class="acceso-card">
+            <div class="ico-wrap"><i class="fas fa-clock"></i></div>
+            <div class="btn-acceso">Horarios</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-2">
+        <a href="pages2/bolsa.html" style="display:block; height:100%;">
+          <div class="acceso-card">
+            <div class="ico-wrap"><i class="fas fa-briefcase"></i></div>
+            <div class="btn-acceso">Bolsa de Trabajo</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-2">
+        <a href="pages2/noticias.html" style="display:block; height:100%;">
+          <div class="acceso-card">
+            <div class="ico-wrap"><i class="fas fa-newspaper"></i></div>
+            <div class="btn-acceso">Noticias</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SOBRE LA CARRERA -->
+<section id="carrera">
+  <div class="container">
+
+    <span class="sec-label">Sobre la Carrera</span>
+
+    <div class="row g-4 align-items-start">
+
+      <!-- Izquierda: texto + foto -->
+      <div class="col-lg-6">
+        <h2 class="carrera-titulo">
+          Diseñamos. Programamos.<br>
+          <span>Transformamos.</span>
+        </h2>
+        <p class="carrera-desc">
+          La Ingeniería en Diseño y Programación Digital combina creatividad,
+          tecnología e innovación para crear soluciones digitales de impacto.
+          Desarrolla tu talento, construye el futuro.
+        </p>
+        
+
+        <img
+          src="img/ciudadela.png"
+          alt="Estudiantes DPD"
+          class="carrera-foto mt-4"
+        />
+      </div>
+
+      <!-- Derecha: Misión / Visión / Objetivos (acordeón) -->
+      <div class="col-lg-6">
+        <div class="mvob-tab">
+          <div class="ico-mvob"><i class="fas fa-rocket"></i></div>
+          <div>
+            <h5>MISIÓN</h5>
+            <p>
+              Formar profesionales a nivel de Licenciatura y Técnico 
+              Universitario Superior creativos, emprendedores, 
+              competentes y comprometidos con un amplio sentido ético 
+              y humano para resolver necesidades de comunicación visual 
+              y audiovisual del entorno, con identidad y compromiso con 
+              el cambio social y la sustentabilidad apoyados en la ciencia 
+              y tecnología.
+            </p>
+          </div>
+        </div>
+
+        <div class="mvob-tab">
+          <div class="ico-mvob"><i class="fas fa-eye"></i></div>
+          <div>
+            <h5>VISIÓN</h5>
+            <p>
+              Formar profesionales de prestigio nacional impulsando 
+              la cultura con una mentalidad crítica y abierta a nuevas
+              formas de expresión gráfica y audiovisual, con creatividad, 
+              calidad y pertinencia social; con capacidad científica y 
+              tecnológica para la transformación de la realidad en beneficio 
+              del desarrollo regional y nacional.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="mvob-tab">
+          <div class="ico-mvob"><i class="fas fa-bullseye"></i></div>
+          <div>
+            <h5>OBJETIVO PROFESIONAL</h5>
+            <p>
+              Formar profesionales íntegros y altamente capacitados, dedicados 
+              al estudio y desarrollo de la tecnología del diseño, animación y 
+              producción audiovisual, diseño publicitario, diseño web, diseño 
+              tipográfico y diseño multimedia; para que ingresen y contribuyan en 
+              el mercado laboral regional, nacional e internacional con innovación,
+               creación, desarrollo e implementación de soluciones tecnológicas 
+               visionarias y creativas en el diseño y construcción de diferentes 
+               productos utilizando la tecnología existente, en instituciones públicas 
+               y privadas, agencias de diseño y publicidad, empresas del área web y 
+               multimedia, editoriales y medios de comunicación impresa, instituciones 
+               educativas y empresas productoras de bienes y servicios.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mini-cards de datos clave -->
+        <div class="mvob-mini-grid">
+          <div class="mvob-mini-card">
+            <i class="fas fa-users"></i>
+            <div>
+              <span class="mvob-mini-num">4</span>
+              <span class="mvob-mini-label">Años de formación</span>
+            </div>
+          </div>
+          <div class="mvob-mini-card">
+            <i class="fas fa-laptop-code"></i>
+            <div>
+              <span class="mvob-mini-num">8</span>
+              <span class="mvob-mini-label">Semestres</span>
+            </div>
+          </div>
+          <div class="mvob-mini-card">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <span class="mvob-mini-num">Ingeniero en Diseño y Programación Digital</span>
+              <span class="mvob-mini-label">Título Licenciatura</span>
+            </div>
+          </div>
+          <div class="mvob-mini-card">
+            <i class="fas fa-award"></i>
+            <div>
+              <span class="mvob-mini-num">TUS</span>
+              <span class="mvob-mini-label">Salida lateral 5 sem.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ÁREAS DE FORMACIÓN -->
+
+<section id="areas-formacion">
+  <div class="container">
+
+    <span class="sec-label">¿Qué aprenderás?</span>
+    <h2 class="sec-titulo-formacion">
+      Áreas de <span>Formación Profesional</span>
+    </h2>
+    <p class="sec-desc-formacion">
+      Una carrera que combina creatividad, tecnología e innovación en 8 semestres
+      de formación integral orientada al mercado digital.
+    </p>
+
+    <!-- Cards de áreas -->
+    <div class="row g-4 mt-2">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card">
+          <div class="area-card-header" style="--area-color:#00C2FF;">
+            <div class="area-ico"><i class="fas fa-code"></i></div>
+            <div class="area-linea" style="background:rgba(0,194,255,0.3);"></div>
+          </div>
+          <h4 class="area-titulo">Programación & Desarrollo</h4>
+          <p class="area-desc">
+            Desde los fundamentos hasta el desarrollo web full-stack, móvil y aplicaciones
+            de inteligencia artificial. Dominas lenguajes, frameworks y arquitecturas modernas.
+          </p>
+          <div class="area-tags">
+            <span>Web</span><span>Móvil</span><span>IA</span><span>Cloud</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card">
+          <div class="area-card-header" style="--area-color:#1E88E5;">
+            <div class="area-ico" style="color:#1E88E5; border-color:rgba(30,136,229,0.4); box-shadow:0 0 16px rgba(30,136,229,0.25);"><i class="fas fa-palette"></i></div>
+            <div class="area-linea" style="background:rgba(30,136,229,0.3);"></div>
+          </div>
+          <h4 class="area-titulo">Diseño Digital & UX/UI</h4>
+          <p class="area-desc">
+            Teoría del color, diseño gráfico, animación, diseño de interfaces y experiencia
+            de usuario. Creas productos digitales visualmente poderosos y funcionales.
+          </p>
+          <div class="area-tags">
+            <span>UX/UI</span><span>Animación</span><span>Gráfico</span><span>3D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card">
+          <div class="area-card-header" style="--area-color:#7C4DFF;">
+            <div class="area-ico" style="color:#7C4DFF; border-color:rgba(124,77,255,0.4); box-shadow:0 0 16px rgba(124,77,255,0.25);"><i class="fas fa-database"></i></div>
+            <div class="area-linea" style="background:rgba(124,77,255,0.3);"></div>
+          </div>
+          <h4 class="area-titulo">Datos & Infraestructura</h4>
+          <p class="area-desc">
+            Bases de datos, redes, sistemas operativos, seguridad informática y computación
+            en la nube. La columna técnica sólida que sustenta cualquier sistema digital.
+          </p>
+          <div class="area-tags">
+            <span>SQL</span><span>Redes</span><span>Cloud</span><span>Seguridad</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card">
+          <div class="area-card-header" style="--area-color:#00BFA5;">
+            <div class="area-ico" style="color:#00BFA5; border-color:rgba(0,191,165,0.4); box-shadow:0 0 16px rgba(0,191,165,0.25);"><i class="fas fa-vr-cardboard"></i></div>
+            <div class="area-linea" style="background:rgba(0,191,165,0.3);"></div>
+          </div>
+          <h4 class="area-titulo">Tecnologías Emergentes</h4>
+          <p class="area-desc">
+            Inteligencia artificial, realidad aumentada y virtual, análisis de datos y
+            multimedia avanzada. Preparación para la frontera tecnológica del mañana.
+          </p>
+          <div class="area-tags">
+            <span>IA</span><span>AR/VR</span><span>Big Data</span><span>Multimedia</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card">
+          <div class="area-card-header" style="--area-color:#FF6D00;">
+            <div class="area-ico" style="color:#FF6D00; border-color:rgba(255,109,0,0.4); box-shadow:0 0 16px rgba(255,109,0,0.25);"><i class="fas fa-rocket"></i></div>
+            <div class="area-linea" style="background:rgba(255,109,0,0.3);"></div>
+          </div>
+          <h4 class="area-titulo">Gestión & Emprendimiento</h4>
+          <p class="area-desc">
+            Ingeniería de software, gestión de proyectos TI y emprendimiento digital.
+            Habilidades para liderar equipos y lanzar productos tecnológicos al mercado.
+          </p>
+          <div class="area-tags">
+            <span>Scrum</span><span>Startup</span><span>Liderazgo</span><span>TI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card area-card-cta">
+          <i class="fas fa-graduation-cap area-cta-ico"></i>
+          <h4>¿Listo para comenzar?</h4>
+          <p>Explora el plan de estudios completo con todas las asignaturas por semestre.</p>
+          <a href="pages/malla.html" class="btn-area-cta">
+            VER MALLA CURRICULAR <i class="fas fa-arrow-right ms-1"></i>
+          </a>
+          <a href="pages/nosotros.html" class="btn-area-sec">
+            PERFIL DEL EGRESADO
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--VIDEO INSTITUCIONAL -->
+
+<section id="video-institucional">
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- Texto izquierda -->
+      <div class="col-lg-5">
+        <span class="sec-label">Conócenos</span>
+        <h2 class="video-titulo">
+          La carrera del<br><span>futuro digital</span>
+        </h2>
+        <p class="video-desc">
+          Descubre cómo formamos a los profesionales que diseñan y construyen
+          el mundo digital. Tecnología, creatividad e innovación en un solo programa.
+        </p>
+        <div class="video-highlights">
+          
+          <div class="vh-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Docentes con experiencia en la industria</span>
+          </div>
+          <div class="vh-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Proyectos reales desde el primer año</span>
+          </div>
+          <div class="vh-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Vinculación con el sector tecnológico</span>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Video derecha -->
+      <div class="col-lg-7">
+        <div class="video-wrapper">
+          <div class="video-frame">
+            <iframe
+              src="videos/carrera3.mp4"
+              title="Video Institucional DPD - UATF"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <!-- Etiqueta decorativa -->
+          <div class="video-badge">
+            <i class="fas fa-play-circle"></i>
+            <span>Video Institucional</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--GALERÍA MULTIMEDIA -->
+
+<section id="galeria">
+  <div class="container">
+
+    <span class="sec-label">Galería Multimedia</span>
+    <h2 class="sec-titulo-galeria">Actividades e <span>Infraestructura</span></h2>
+
+    <!-- Filtros -->
+    <div class="galeria-filtros">
+      <button class="g-filtro activo" data-cat="todos">TODOS</button>
+      <button class="g-filtro" data-cat="actividades">ACTIVIDADES</button>
+      <button class="g-filtro" data-cat="infraestructura">INFRAESTRUCTURA</button>
+      <button class="g-filtro" data-cat="proyectos">PROYECTOS</button>
+      <button class="g-filtro" data-cat="eventos">EVENTOS</button>
+    </div>
+
+    <!-- Grid mejorado con overlay -->
+    <div class="galeria-grid">
+      <div class="g-item" data-cat="proyectos">
+        <img src="proyectos/2do parcial.jpg" alt="Trabajo colaborativo" />
+        <div class="g-overlay"><span>Fotografía</span></div>
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="proyectos/pagina gym (1).png" alt="Laboratorio" />
+        <div class="g-overlay"><span>Páginas web</span></div>
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="proyectos/ILUSTRACIÓN.  portada del libro de las cronicas de narnia.jpg" alt="Proyecto estudiantil" />
+        <div class="g-overlay"><span>Ilustración</span></div>
+      </div>
+      <div class="g-item" data-cat="eventos">
+        <img src="actividades/fiesta.jpeg" alt="Evento" />
+        <div class="g-overlay"><span>Fiesta de bienvenida</span></div>
+      </div>
+      <div class="g-item" data-cat="eventos">
+        <img src="actividades/flyer.jpeg" alt="torneo" />
+        <div class="g-overlay"><span>Torneo Clash</span></div>
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="proyectos/pelota de billar.png" alt="Proyecto estudiantil" />
+        <div class="g-overlay"><span>Prácticas illustrator</span></div>
+      </div>
+      <div class="g-item" data-cat="infraestructura">
+        <img src="infra/ciuda.jpg" alt="infraestructura" />
+        <div class="g-overlay"><span>Ciudadela universitaria</span></div>
+      </div>
+      <div class="g-item" data-cat="infraestructura">
+        <img src="infra/tomas frias.jpg" alt="infraestructura" />
+        <div class="g-overlay"><span>UATF</span></div>
+      </div>
+      <div class="g-item" data-cat="actividades">
+        <img src="actividades/ganadores.jpeg" alt="infraestructura" />
+        <div class="g-overlay"><span>Ganadores del Torneo</span></div>
+      </div>
+      
+      
+    </div>
+
+    <div class="text-center">
+      <a href="pages/galeria.html" class="btn-ver-mas-fotos">VER MÁS FOTOS <i class="fas fa-images ms-1"></i></a>
+    </div>
+
+  </div>
+</section>
+
+
+<!--  FORMULARIO DE CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Izquierda -->
+      <div class="col-lg-4">
+        <div class="d-flex align-items-start gap-3 mb-3">
+          <div class="ico-contacto-wrap">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h2 class="contacto-izq" style="font-size:1.6rem; color:var(--azul-oscuro); font-family:'Rajdhani',sans-serif;">
+              FORMULARIO DE CONTACTO
+            </h2>
+          </div>
+        </div>
+        <p style="color:#546E7A; font-size:0.88rem; line-height:1.6; margin-bottom:20px;">
+          Completa el formulario y nos pondremos en contacto contigo a la brevedad posible.
+        </p>
+        <!-- Ilustración -->
+        <div style="text-align:center;">
+               <img src="img/formulario.png" alt="Contacto" style="width:100%; max-width:280px; border-radius:16px;" />
+            </div>
+      </div>
+
+      <!-- Derecha: formulario -->
+      <div class="col-lg-8">
+        <form id="form-contacto" novalidate>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label-dpd" for="nombre">Nombre Completo <span style="color:var(--rojo);">*</span></label>
+              <div style="position:relative;">
+                <i class="fas fa-user" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#90A4B8; font-size:0.85rem;"></i>
+                <input type="text" id="nombre" name="nombre"
+                       class="form-control-dpd" style="padding-left:34px;"
+                       placeholder="Ingresa tu nombre completo" required />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-dpd" for="email">Correo Electrónico <span style="color:var(--rojo);">*</span></label>
+              <div style="position:relative;">
+                <i class="fas fa-envelope" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#90A4B8; font-size:0.85rem;"></i>
+                <input type="email" id="email" name="email"
+                       class="form-control-dpd" style="padding-left:34px;"
+                       placeholder="Ingresa tu correo electrónico" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label-dpd" for="telefono">Teléfono</label>
+              <div style="position:relative;">
+                <i class="fas fa-phone" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#90A4B8; font-size:0.85rem;"></i>
+                <input type="tel" id="telefono" name="telefono"
+                       class="form-control-dpd" style="padding-left:34px;"
+                       placeholder="Ingresa tu número de teléfono" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-dpd" for="asunto">Asunto</label>
+              <select id="asunto" name="asunto" class="form-control-dpd">
+                <option value="">Selecciona un asunto</option>
+                <option value="admision">Información de Admisión</option>
+                <option value="malla">Consulta sobre Malla Curricular</option>
+                <option value="horarios">Horarios</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label-dpd" for="mensaje">Consulta / Mensaje <span style="color:var(--rojo);">*</span></label>
+            <div style="position:relative;">
+              <i class="fas fa-comment" style="position:absolute; left:12px; top:14px; color:#90A4B8; font-size:0.85rem;"></i>
+              <textarea id="mensaje" name="mensaje"
+                        class="form-control-dpd" style="padding-left:34px; min-height:120px; resize:vertical;"
+                        placeholder="Escribe tu consulta o mensaje aquí..." required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-enviar-form">Enviar mensaje</button>
+          <p class="campos-obligatorios">Campos Obligatorios *</p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Col 1: Marca -->
+      <div class="col-12 col-md-4 footer-col">
+        <div class="footer-ico">
+          <i class="fas fa-code"></i>
+        </div>
+        <p class="footer-desc">
+          Impulsamos la creatividad y la tecnología mediante la formación de especialistas
+          en diseño digital, desarrollo web, programación y experiencias interactivas.
+        </p>
+      </div>
+
+      <!-- Col 2: Enlaces rápidos -->
+      <div class="col-6 col-md-2 footer-col">
+        <p class="footer-titulo">| Enlaces Rápidos</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/nosotros.html">Nosotros</a></li>
+          <li><a href="pages/malla.html">Malla Curricular</a></li>
+          <li><a href="pages/galeria.html">Galería</a></li>
+          <li><a href="pages/contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Información de contacto -->
+      <div class="col-12 col-md-3 footer-col">
+        <p class="footer-titulo">| Información de contacto</p>
+        <div class="footer-info-item">
+          <i class="fas fa-university"></i>
+          <p>Universidad Autónoma<br>Tomás Frías-Potosí, Bolivia</p>
+        </div>
+        <div class="footer-info-item">
+          <i class="fas fa-phone"></i>
+          <p>+591 72398171</p>
+        </div>
+        <div class="footer-info-item">
+          <i class="fas fa-envelope"></i>
+          <p>dpd@uatf.edu.bo</p>
+        </div>
+        <div class="footer-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Ciudadela Universitaria</p>
+        </div>
+        <div class="footer-info-item">
+          <i class="fas fa-clock"></i>
+          <p>Lunes a Viernes<br>08:00 - 12:00 · 14:00 - 18:00</p>
+        </div>
+      </div>
+
+      <!-- Col 4: Síguenos -->
+      <div class="col-6 col-md-3 footer-col">
+        <p class="footer-titulo">| Síguenos</p>
+        <a href="https://chat.whatsapp.com/KQLQVHoHaIuFkizzZuGSdP?mode=ems_qr_t " target="_blank" class="footer-red-item d-flex align-items-center text-decoration-none">
+          <div class="red-ico bg-wa"><i class="fab fa-whatsapp"></i></div>
+          <span class="red-nombre ms-2">Whatsapp</span>
+        </a>
+        <a href="https://t.me/+EcWQ_EFNEJcxM2Rh" target="_blank" class="footer-red-item d-flex align-items-center text-decoration-none">
+          <div class="red-ico bg-tg"><i class="fab fa-telegram"></i></div>
+          <span class="red-nombre ms-2">Telegram</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61553116591187" target="_blank" class="footer-red-item d-flex align-items-center text-decoration-none">
+          <div class="red-ico bg-fb"><i class="fab fa-facebook-f"></i></div>
+          <span class="red-nombre ms-2">Facebook</span>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="footer-red-item d-flex align-items-center text-decoration-none">
+          <div class="red-ico bg-ig"><i class="fab fa-instagram"></i></div>
+          <span class="red-nombre ms-2">Instagram</span>
+        </a>
+        <a href="mailto:dpd@uatf.edu.bo" class="footer-red-item d-flex align-items-center text-decoration-none">
+          <div class="red-ico bg-em"><i class="fas fa-envelope"></i></div>
+          <span class="red-nombre ms-2">Correo Institucional</span>
+        </a>
+       <a href="https://www.tiktok.com/@disenodigital._23" class="footer-red-item d-flex align-items-center text-decoration-none">
+    <div class="red-ico bg-tk">
+        <i class="fa-brands fa-tiktok"></i>
+    </div>
+    <span class="red-nombre ms-2">TikTok</span>
+</a>
+
+<a href="https://www.youtube.com/@Ingenier%C3%ADaEndise%C3%B1oyProgramaci%C3%B3"
+   class="footer-red-item d-flex align-items-center text-decoration-none">
+    <div class="red-ico bg-yt">
+        <i class="fa-brands fa-youtube"></i>
+    </div>
+    <span class="red-nombre ms-2">YouTube</span>
+</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p>&copy; 2026 UATF – Todos los derechos reservados.</p>
+        <div class="d-flex gap-3">
+          <a href="#">Política de privacidad</a>
+          <span style="color:#546E7A;">–</span>
+          <a href="#">Términos y Condiciones</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span class="lb-cerrar" id="lb-cerrar">&times;</span>
+  <img id="lb-img" src="" alt="Imagen ampliada" />
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

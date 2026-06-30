@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería | DPD - UATF</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-3 px-lg-4">
+    <a href="../index.html" class="navbar-brand p-0 me-0">
+      <div class="logo-dpd-wrap">
+        <div class="logo-dpd-ico">
+          <img src="../img/logocarrera.png" alt="Logo DPD" style="width:44px; height:44px; border-radius:50%;" />
+        </div>
+        <div class="logo-dpd-txt">INGENIERÍA EN<br>DISEÑO Y<br>PROGRAMACIÓN<br>DIGITAL</div>
+      </div>
+    </a>
+    <a href="../index.html" class="navbar-brand p-0 me-3">
+      <div class="logo-uatf-wrap">
+        <!-- Logo UATF: imagen real -->
+        <img src="../img/UATF.png" alt="Logo UATF"
+             style="width:44px; height:44px; border-radius:50%; object-fit:contain;" />
+        <div class="logo-uatf-txt">UNIVERSIDAD<br>AUTÓNOMA<br>TOMÁS FRÍAS</div>
+      </div>
+    </a>
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navGal">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navGal">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="malla.html">Malla Curricular</a></li>
+        <li class="nav-item"><a class="nav-link activo" href="galeria.html">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="pagina-hero-int">
+  <div class="container text-center">
+    <h1><i class="fas fa-images me-2" style="color:var(--cyan);"></i>Galería Multimedia</h1>
+    <p>Actividades, Infraestructura, Proyectos y Eventos</p>
+  </div>
+</div>
+
+<!-- SLIDER PRINCIPAL -->
+<div style="background:var(--azul-hero); padding:40px 0;">
+  <div class="container">
+    <div id="sliderPrincipal" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#sliderPrincipal" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#sliderPrincipal" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#sliderPrincipal" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../actividades/flyer.jpeg"
+               style="width:100%; height:380px; object-fit:cover; border-radius:12px; border:1px solid var(--borde);" alt="Lab" />
+          <div class="carousel-caption" style="background:rgba(4,13,30,0.7); border-radius:8px; padding:12px 20px;">
+            <h5 style="font-family:'Rajdhani',sans-serif;">Eventos Dinámicos</h5>
+            <p style="font-size:0.83rem; color:var(--gris-claro);">Se parte de nuestros y actividades, donde tendras la mejor diversión</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../infra/ciuda.jpg"
+               style="width:100%; height:380px; object-fit:cover; border-radius:12px; border:1px solid var(--borde);" alt="Actividad" />
+          <div class="carousel-caption" style="background:rgba(4,13,30,0.7); border-radius:8px; padding:12px 20px;">
+            <h5 style="font-family:'Rajdhani',sans-serif;">Ciudadela Universitaria</h5>
+            <p style="font-size:0.83rem; color:var(--gris-claro);">Inscribete a nuestra carrera, estamos en la Ciudadela Universitaria</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../proyectos/pagina gym (1).png"
+               style="width:100%; height:380px; object-fit:cover; border-radius:12px; border:1px solid var(--borde);" alt="Proyecto" />
+          <div class="carousel-caption" style="background:rgba(4,13,30,0.7); border-radius:8px; padding:12px 20px;">
+            <h5 style="font-family:'Rajdhani',sans-serif;">Páginas web</h5>
+            <p style="font-size:0.83rem; color:var(--gris-claro);">Crea las páginas dinamicas que a ti te gustan</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#sliderPrincipal" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#sliderPrincipal" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- GALERÍA CON FILTROS -->
+<section id="galeria" style="padding-top:48px;">
+  <div class="container">
+
+    <span class="sec-label">Todas las fotos</span>
+
+    <!-- Filtros -->
+    <div class="galeria-filtros">
+      <button class="g-filtro activo" data-cat="todos">TODOS</button>
+      <button class="g-filtro" data-cat="actividades">ACTIVIDADES</button>
+      <button class="g-filtro" data-cat="infraestructura">INFRAESTRUCTURA</button>
+      <button class="g-filtro" data-cat="proyectos">PROYECTOS</button>
+      <button class="g-filtro" data-cat="eventos">EVENTOS</button>
+    </div>
+
+    <!-- Grid de fotos -->
+    <div class="galeria-grid">
+
+      <!--Actividades y eventos realizadas en la carrera-->
+      <div class="g-item" data-cat="eventos">
+        <img src="../actividades/fiesta.jpeg" alt="Actividad 1" />
+      </div>
+       <div class="g-item" data-cat="actividades">
+        <img src="../actividades/ganadores.jpeg" alt="Actividad 2" />
+      </div>
+       <div class="g-item" data-cat="eventos">
+        <img src="../actividades/flyer.jpeg" alt="Actividad 3" />
+      </div>
+       <div class="g-item" data-cat="actividades">
+        <img src="../actividades/mmm.jpeg" alt="Actividad 4" />
+      </div>
+       <iframe class="g-item" data-cat="actividades" src="../videos/clash.mp4"  title="entrevista"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+       </iframe>
+      <iframe class="g-item" data-cat="actividades" src="../videos/royalle.mp4" title="entrevista"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+
+      <!--Infraestructura-->
+      <div class="g-item" data-cat="infraestructura">
+        <img src="../infra/ciuda.jpg" alt="ciudadela" />
+      </div>
+      <div class="g-item" data-cat="infraestructura">
+        <img src="../infra/tomas frias.jpg" alt="uatf" />
+      </div>
+
+      <!--Proyectos de los estudiantes-->
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/1er Parcial.jpg" alt="Proyecto 1" />
+      </div>
+       <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/2do parcial.jpg" alt="Proyecto 2" />
+      </div>
+       <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/Boulevard.jpg" alt="Proyecto 3" />
+      </div>
+       <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/Flayer de tipografia.jpg" alt="Proyecto 4" />
+      </div>
+       <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/ghibli (1).png" alt="Proyecto 5" />
+      </div>
+       <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/ghibli (2).png" alt="Proyecto 6" />
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/ILUSTRACIÓN.  portada del libro de las cronicas de narnia.jpg" alt="Proyecto 7" />
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/pagina gym (1).png" alt="Proyecto 8" />
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/paisaje.jpg" alt="Proyecto 9" />
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/pelota de billar.png" alt="Proyecto 10" />
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/portada _CARMILLA_.png" alt="Proyecto11" />
+      </div>
+      <div class="g-item" data-cat="proyectos">
+        <img src="../proyectos/PORTADA.jpg" alt="Proyecto 12" />
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="margin-top:60px;">
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:none;">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p>&copy; 2026 UATF – Todos los derechos reservados.</p>
+        <a href="../index.html" style="color:var(--cyan);">← Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span class="lb-cerrar" id="lb-cerrar">&times;</span>
+  <img id="lb-img" src="" alt="Imagen ampliada" />
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
